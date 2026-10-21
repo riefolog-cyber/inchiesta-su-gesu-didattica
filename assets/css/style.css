@@ -48,8 +48,10 @@ h1,h2,h3,h4{line-height:1.18; margin:0 0 .45em}
 .brand__mag{font-family:var(--font-cond); font-size:.72rem; letter-spacing:.14em; text-transform:uppercase; color:var(--oro)}
 .brand__tit{font-family:var(--font-display); font-weight:800; font-size:1.06rem}
 
-.chips{overflow-x:auto; scrollbar-width:none; flex:1; min-width:0}
-.chips::-webkit-scrollbar{display:none}
+.chips{overflow-x:auto; scrollbar-width:thin; scrollbar-color:rgba(255,255,255,.35) transparent; flex:1; min-width:0}
+.chips::-webkit-scrollbar{height:4px}
+.chips::-webkit-scrollbar-thumb{background:rgba(255,255,255,.35); border-radius:2px}
+.chips::-webkit-scrollbar-track{background:transparent}
 .chips__list{display:flex; gap:.3rem; padding:.15rem 0; margin:0; list-style:none}
 .chips__link{display:block; white-space:nowrap; font-family:var(--font-cond); font-size:.78rem;
   letter-spacing:.06em; text-transform:uppercase; color:rgba(255,255,255,.78);
@@ -321,6 +323,14 @@ h1,h2,h3,h4{line-height:1.18; margin:0 0 .45em}
   border-radius:50%; border:1px solid var(--line); background:var(--blu); color:var(--oro);
   font-size:1.1rem; cursor:pointer; opacity:0; pointer-events:none; transition:opacity .2s}
 .totop.is-visible{opacity:1; pointer-events:auto}
+:root{--scrollbar-gutter:auto}
+html{scroll-padding-top:96px}
+@media(min-width:1021px){
+  .chips{overflow:visible}
+  .chips__list{flex-wrap:wrap; justify-content:flex-end}
+}
+@media(max-width:840px){html{scroll-padding-top:56px}}
+
 [data-reveal]{opacity:0; transform:translateY(14px); transition:opacity .5s ease, transform .5s ease}
 [data-reveal].is-vis{opacity:1; transform:none}
 @media (prefers-reduced-motion:reduce){[data-reveal]{opacity:1; transform:none; transition:none}}
